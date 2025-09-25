@@ -11,9 +11,8 @@ class Program
         };
 
         char currentPlayer = 'X';
-        bool running = true;
 
-        while (running)
+        while (true)
         {
             Console.Clear();
             PrintBoard(board);
@@ -23,7 +22,7 @@ class Program
             {
                 Console.Clear();
                 PrintBoard(board);
-                Console.WriteLine($"Hráč {currentPlayer} VYHRÁL!");
+                Console.WriteLine($" hráč {currentPlayer} VYHRÁL!");
                 break;
             }
 
@@ -31,19 +30,21 @@ class Program
             {
                 Console.Clear();
                 PrintBoard(board);
-                Console.WriteLine("Remíza!");
+                Console.WriteLine(" remíza!");
                 break;
             }
+
             currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
         }
 
         Console.WriteLine("\nKonec hry, stiskni ENTER pro ukončení...");
         Console.ReadLine();
     }
+
     static void PrintBoard(char[,] board)
     {
         Console.WriteLine("-------------");
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)   
         {
             Console.Write("| ");
             for (int j = 0; j < 3; j++)
@@ -60,11 +61,11 @@ class Program
         int row, col;
         while (true)
         {
-            Console.WriteLine($"Hráč {player}, je tvůj tah.");
-            Console.Write("Zadej řádek (0–2): ");
-            row = int.Parse(Console.ReadLine());
-            Console.Write("Zadej sloupec (0–2): ");
-            col = int.Parse(Console.ReadLine());
+            Console.WriteLine($"hráč {player}, je tvůj tah.");
+            Console.Write("zadej řádek (1–3): ");
+            row = int.Parse(Console.ReadLine()) - 1; 
+            Console.Write("zadej sloupec (1–3): ");
+            col = int.Parse(Console.ReadLine()) - 1;
 
             if (row >= 0 && row < 3 && col >= 0 && col < 3)
             {
@@ -75,15 +76,16 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine(" Toto pole je plné zkus znovu.");
+                    Console.WriteLine(" pole je plné, zkus jiné");
                 }
             }
             else
             {
-                Console.WriteLine(" Špatné místo, zadej 0, 1 nebo 2.");
+                Console.WriteLine(" špatné místo, zadej čísla 1 - 3.");
             }
         }
     }
+
     static bool CheckWin(char[,] board, char player)
     {
         for (int i = 0; i < 3; i++)
