@@ -10,15 +10,75 @@ class Program
         Random rnd = new Random();
         string tajneSlovo = slova[rnd.Next(slova.Length)];
 
+        string[] sibenice ={
+                    @"
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========",
+            @"
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========",
+            @"
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========",
+            @"
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========",
+            @"
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========",
+            @"
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========",
+            @"
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+========="
+        };
+
         // Stav hry
         HashSet<char> hadanaPismena = new HashSet<char>();
         int chyby = 0;
-        int maxChyb = 6;
+        int maxChyb = sibenice.Length - 1; 
 
         while (true)
         {
             Console.Clear();
             Console.WriteLine("=== Šibenice ===");
+            Console.WriteLine(sibenice[chyby]);
             Console.WriteLine($"Chyby: {chyby}/{maxChyb}");
             Console.Write("Slovo: ");
 
