@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kamen_nuzky_papir", "kamen_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sibenice", "sibenice\sibenice.csproj", "{A6FED8C0-D9BD-43B6-BEE9-D4C66EF688DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hledani_bomb", "hledani_bomb\hledani_bomb.csproj", "{DA01C0BB-8D37-4873-B0E2-8833C8F48443}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A6FED8C0-D9BD-43B6-BEE9-D4C66EF688DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6FED8C0-D9BD-43B6-BEE9-D4C66EF688DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6FED8C0-D9BD-43B6-BEE9-D4C66EF688DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA01C0BB-8D37-4873-B0E2-8833C8F48443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA01C0BB-8D37-4873-B0E2-8833C8F48443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA01C0BB-8D37-4873-B0E2-8833C8F48443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA01C0BB-8D37-4873-B0E2-8833C8F48443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
