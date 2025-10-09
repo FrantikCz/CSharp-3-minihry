@@ -9,6 +9,13 @@ namespace MonoGame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private Texture2D squareTexture;
+        private Vector2 squarePosition;
+        private float squarespeed = 200f;
+
+        private int windowWidth;
+        private int windowHeight;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -18,7 +25,14 @@ namespace MonoGame
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            _graphics.PreferredBackBufferWidth = 800;
+            _graphics.PreferredBackBufferHeight = 400;
+            _graphics.ApplyChanges();
+
+            windowWidth = _graphics.PreferredBackBufferWidth;
+            windowHeight = _graphics.PreferredBackBufferHeight;
+
+            squarePosition = new Vector2(100, windowHeight / 2);
 
             base.Initialize();
         }
@@ -27,11 +41,14 @@ namespace MonoGame
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            squareTexture = new Texture2D(GraphicsDevice, 1, 1);
+            squareTexture.SetData(new[] { Color.White });
+
         }
 
         protected override void Update(GameTime gameTime)
         {
+            var k = Keyboard.GetState();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
