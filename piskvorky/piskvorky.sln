@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sibenice", "sibenice\sibeni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hledani_bomb", "hledani_bomb\hledani_bomb.csproj", "{DA01C0BB-8D37-4873-B0E2-8833C8F48443}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame", "MonoGame\MonoGame.csproj", "{5E4F8AD4-E648-461A-B5B3-0B32117907C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DA01C0BB-8D37-4873-B0E2-8833C8F48443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA01C0BB-8D37-4873-B0E2-8833C8F48443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA01C0BB-8D37-4873-B0E2-8833C8F48443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4F8AD4-E648-461A-B5B3-0B32117907C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4F8AD4-E648-461A-B5B3-0B32117907C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4F8AD4-E648-461A-B5B3-0B32117907C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4F8AD4-E648-461A-B5B3-0B32117907C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
