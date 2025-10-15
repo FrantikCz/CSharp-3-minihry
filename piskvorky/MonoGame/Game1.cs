@@ -11,7 +11,7 @@ namespace MonoGame
 
         private Texture2D squareTexture;
         private Vector2 squarePosition;
-        private float squarespeed = 200f;
+        private float squareSpeed = 200f;
 
         private int windowWidth;
         private int windowHeight;
@@ -48,11 +48,19 @@ namespace MonoGame
 
         protected override void Update(GameTime gameTime)
         {
-            var k = Keyboard.GetState();
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            
 
-            // TODO: Add your update logic here
+            var k = Keyboard.GetState();
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            // pohyb čtverce
+            if (k.IsKeyDown(Keys.W)) squarePosition.Y -= squareSpeed * dt;
+            if (k.IsKeyDown(Keys.S)) squarePosition.Y += squareSpeed * dt;
+            if (k.IsKeyDown(Keys.A)) squarePosition.X -= squareSpeed * dt;
+            if (k.IsKeyDown(Keys.D)) squarePosition.X += squareSpeed * dt;
+
+            squarePosition.X = MathHelper.Clamp(squarePosition.X, 0, windowWidth - 20);
+            squarePosition.Y = MathHelper.Clamp(squarePosition.Y, 0, windowHeight - 20);
 
             base.Update(gameTime);
         }
@@ -61,7 +69,18 @@ namespace MonoGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+
+            _spriteBatch.Draw(squareTexture, new Rectangle((int)squarePosition.X, (int)squarePosition.Y, 20, 20), Color.Blue);
+
+
+            // 2️⃣ zrcadlový čtverec (šedý)
+            float mirrorX = windowWidth - (squarePosition.X + 20);
+            _spriteBatch.Draw(squareTexture, new Rectangle((int)mirrorX, (int)squarePosition.Y, 20, 20), Color.Gray);
+
+            _spriteBatch.Draw(squareTexture, new Rectangle(windowWidth / 2, 0, 2, windowHeight), Color.Black);
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
