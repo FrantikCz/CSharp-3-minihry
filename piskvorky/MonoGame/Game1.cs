@@ -16,6 +16,8 @@ namespace MonoGame
         private int windowWidth;
         private int windowHeight;
 
+        private const int squareSize = 20;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -53,7 +55,7 @@ namespace MonoGame
             var k = Keyboard.GetState();
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            // pohyb čtverce
+            //pohyb čtverce
             if (k.IsKeyDown(Keys.W)) squarePosition.Y -= squareSpeed * dt;
             if (k.IsKeyDown(Keys.S)) squarePosition.Y += squareSpeed * dt;
             if (k.IsKeyDown(Keys.A)) squarePosition.X -= squareSpeed * dt;
@@ -61,6 +63,15 @@ namespace MonoGame
 
             squarePosition.X = MathHelper.Clamp(squarePosition.X, 0, windowWidth - 20);
             squarePosition.Y = MathHelper.Clamp(squarePosition.Y, 0, windowHeight - 20);
+
+            // kolize se zrcadlem
+            float mirrorX = windowWidth / 2f;
+            if (squarePosition.X + squareSize > mirrorX)
+            {
+                // pokud hráč narazí na zrcadlo, zastaví se
+                squarePosition.X = mirrorX - squareSize;
+            }
+
 
             base.Update(gameTime);
         }
@@ -73,8 +84,8 @@ namespace MonoGame
 
             _spriteBatch.Draw(squareTexture, new Rectangle((int)squarePosition.X, (int)squarePosition.Y, 20, 20), Color.Blue);
 
+            //zrcadlový čtverec
 
-            // 2️⃣ zrcadlový čtverec (šedý)
             float mirrorX = windowWidth - (squarePosition.X + 20);
             _spriteBatch.Draw(squareTexture, new Rectangle((int)mirrorX, (int)squarePosition.Y, 20, 20), Color.Gray);
 
